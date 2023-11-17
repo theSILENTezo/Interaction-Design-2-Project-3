@@ -6,10 +6,13 @@ var left;
 var startup;
 
 function preload(){
-  song = loadSound("sounds/Happy_Little_Clouds.mp3");
-  intro = loadSound("sounds/screen_intro.mp3");
-  startup = loadSound("images/bob_ross.jpeg");
-  stage = loadImage("images/canvas.jpeg");
+  //songs/tune
+    song = loadSound("sounds/Happy_Little_Clouds.mp3");
+    intro = loadSound("sounds/screen_intro.mp3");
+
+  //images
+    startup = loadSound("images/bob_ross.jpeg");
+    stage = loadImage("images/canvas.jpeg");
 }
 
 function setup() {
@@ -17,7 +20,7 @@ function setup() {
 }
 
 function draw() {
-  background(0);
+  background(stage);
 }
 
 function playIT(){
