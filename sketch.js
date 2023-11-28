@@ -56,7 +56,9 @@ function startScreen(){
     button.size(140, 100);
     button.mousePressed(playIT);
 
-  scoreBoard();
+  //scoreBoard();
+  //playIT();
+  //endScreen();
 }
 
 function playIT(){
@@ -65,7 +67,7 @@ function playIT(){
 
   text("score =" + score, 40, 70);
 
-  //image(cursor, mouseX, height-10);
+  image(cursor, mouseX, height-50, 50, 50);
 }
 
 function endScreen(){
@@ -73,12 +75,12 @@ function endScreen(){
 
   //Text
     textAlign(CENTER);
-    text('GAME OVER', width/2, height/2);
-    text("Final Score =" + score, width/2 + 25, height/2 + 25);
+    text('GAME OVER', 570, 180);
+    text("Final Score =" + score, 555, height/2 + 25);
 
   //Button
     button = createButton('PLAY AGAIN?');
-    button.position(250, 375);
+    button.position(500, 375);
     button.size(140, 100);
     button.mousePressed(playIT);
 }
