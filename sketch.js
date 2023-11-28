@@ -9,28 +9,23 @@ var mid;
 var startup;
 var button;
 
-
-
 function preload(){
-
   //songs/tune
     song = loadSound("sounds/Happy_Little_Clouds.mp3");
     intro = loadSound("sounds/screen_intro.mp3");
   
   //images
-    startup = loadSound("images/bob_ross.jpeg");
+    startup = loadImage("images/bob_ross.jpeg");
     stage = loadImage("images/canvas.jpeg");
     cursor = loadImage("images/bob_ross_head.jpg");
     droplet = loadImage("images/cloudy_icon.gif");
 
   //text
     font = loadFont("text/CaveatBrush-Regular.ttf");
-
-  
 }
 
 function setup() {
-  createCanvas(800, 800);
+  createCanvas(1200, 630);
 }
 
 function draw() {
@@ -45,16 +40,23 @@ function draw() {
 
 function startScreen(){
   background(startup);
-  fill(237, 198, 24);
-  textFont(font);
-  text('Happy Cloud Catcher', width/4, height/4);
+  
+  //Title
+    fill(237, 198, 24);
+    textFont(font);
+    textSize(150);
+    text('Happy Cloud', 5, 200);
+    text('Catcher', 100, 330);
 
-  button = createButton('PLAY');
+  //button
+    button = createButton('PLAY');
+    button.position(250, 375);
+    button.size(140, 100);
+    button.mousePressed(playIT);
 }
 
 function playIT(){
-  //song.play();
-
+  song.play();
 
   background(stage);
   text("score =" + score, 40, 70);
@@ -70,9 +72,10 @@ function endScreen(){
 }
 
 function placeCloud(){
-  let 
+
 }
 
+/*
 function mousePressed(){
   if(screen == 0){
     screen = 1;
@@ -81,6 +84,7 @@ function mousePressed(){
   }
 }
 
+*/
 function scoreBoard(){
   score = 0;
   speed = 2;
