@@ -56,18 +56,16 @@ function startScreen(){
     button.size(140, 100);
     button.mousePressed(playIT);
 
-    if(button.mousePressed == 'true'){
-      intro.play();
-    }
+  scoreBoard();
 }
 
 function playIT(){
+  background(stage);
   song.play();
 
-  background(stage);
   text("score =" + score, 40, 70);
 
-  //image(cursor, mouseX, mouseY);
+  //image(cursor, mouseX, height-10);
 }
 
 function endScreen(){
@@ -75,8 +73,8 @@ function endScreen(){
 
   //Text
     textAlign(CENTER);
-    text('GAME OVER', );
-    text("Final Score =" + score, 40, 70);
+    text('GAME OVER', width/2, height/2);
+    text("Final Score =" + score, width/2 + 25, height/2 + 25);
 
   //Button
     button = createButton('PLAY AGAIN?');
@@ -102,5 +100,5 @@ function button.mousePressed(){
 function scoreBoard(){
   score = 0;
   speed = 2;
-  y = -2;
+  y = -20;
 }
