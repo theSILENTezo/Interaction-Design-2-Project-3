@@ -1,13 +1,14 @@
 var screen = 0;
 var font;
-var song;
-var intro;
-var stage;
-var right;
-var left;
-var mid;
-var startup;
 var button;
+var score = 0;
+//mp3
+  var song, intro;
+//music note hits
+  var right, left, mid; //positions
+  var cursor, droplet;  //assets
+//backgrounds
+  var startup, stage, end;
 
 function preload(){
   //songs/tune
@@ -19,6 +20,7 @@ function preload(){
     stage = loadImage("images/canvas.jpeg");
     cursor = loadImage("images/bob_ross_head.jpg");
     droplet = loadImage("images/cloudy_icon.gif");
+    end = loadImage("images/end.jpg");
 
   //text
     font = loadFont("text/CaveatBrush-Regular.ttf");
@@ -53,6 +55,10 @@ function startScreen(){
     button.position(250, 375);
     button.size(140, 100);
     button.mousePressed(playIT);
+
+    if(button.mousePressed == 'true'){
+      intro.play();
+    }
 }
 
 function playIT(){
@@ -61,30 +67,38 @@ function playIT(){
   background(stage);
   text("score =" + score, 40, 70);
 
-  image(droplet, x, y);
-  image(cursor, mouseX, mouseY);
+  //image(cursor, mouseX, mouseY);
 }
 
 function endScreen(){
-  background();
+  background(end);
 
+  //Text
+    textAlign(CENTER);
+    text('GAME OVER', );
+    text("Final Score =" + score, 40, 70);
 
+  //Button
+    button = createButton('PLAY AGAIN?');
+    button.position(250, 375);
+    button.size(140, 100);
+    button.mousePressed(playIT);
 }
 
-function placeCloud(){
-
+function spawnClouds(){
+   //image(droplet, x, y);
 }
 
 /*
-function mousePressed(){
+function button.mousePressed(){
   if(screen == 0){
     screen = 1;
   } else if (screen == 2) {
     screen = 0;
   }
 }
-
 */
+
 function scoreBoard(){
   score = 0;
   speed = 2;
