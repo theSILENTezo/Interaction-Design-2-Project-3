@@ -75,7 +75,7 @@ function startScreen(){
     button = createButton('PLAY');
     button.position(320, 475);
     button.size(140, 100);
-    //button.mousePressed(intro.play());
+    button.mousePressed(intro.play());
     button.mousePressed(playIT);
 
   //scoreBoard();
@@ -109,10 +109,12 @@ function playIT(){
   //catcher
     image(cursor, mouseX, height-50, 50, 50);  
     
-  screen = 1;
-  buttonState = "active";
-  playButton.hide();
-  playAgainButton.hide();
+  //makes sure button on start screen loads player into playIT
+    screen = 1;
+    buttonState = "active";
+    playButton.hide();
+    playAgainButton.hide();
+    //button.hide();
 }
 
 function endScreen(){
