@@ -33,6 +33,14 @@ function preload(){
 function setup() {
   createCanvas(1200, 630);
   frameRate(60); //sets number of frames displayed
+
+  /*
+    // Create play button
+    playButton = createButton('PLAY');
+    playButton.position(250, 475);
+    playButton.size(140, 100);
+    playButton.mousePressed(playIT);
+    */
 }
 
 function draw() {
@@ -47,9 +55,15 @@ function draw() {
     }
 }
 
+/*
+function changeSceen(){
+  screen = 1;
+}
+*/
+
 function startScreen(){
   background(startup);
-  
+
   //Title
     fill(237, 198, 24);
     textFont(font);
@@ -59,7 +73,7 @@ function startScreen(){
 
   //button
     button = createButton('PLAY');
-    button.position(250, 475);
+    button.position(320, 475);
     button.size(140, 100);
     //button.mousePressed(intro.play());
     button.mousePressed(playIT);
@@ -71,7 +85,9 @@ function startScreen(){
 
 function playIT(){
   background(stage);
-  //song.play();
+  song.play();
+
+
 
   //score/timer area
     image(counter, width/2 - 190, 10, 400, 200);
@@ -80,22 +96,23 @@ function playIT(){
     textSize(75);
     text("score = " + score, width/2 - 100, 160);
   //Timer
-    
     timer();
     textSize(50);
     fill('red');
     text("Time = " + countDown, width/2 - 90, 100);
-    
 
-    
-  //catcher
-    image(cursor, mouseX, height-50, 50, 50);
-
-
-    if (screen == 2 || countDown < 0){
+      if (screen == 2 || countDown < 0){
       countDown = 0;
       endScreen();
-    }
+      }
+    
+  //catcher
+    image(cursor, mouseX, height-50, 50, 50);  
+    
+  screen = 1;
+  buttonState = "active";
+  playButton.hide();
+  playAgainButton.hide();
 }
 
 function endScreen(){
