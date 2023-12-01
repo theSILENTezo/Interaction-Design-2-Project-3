@@ -112,8 +112,8 @@ function playIT(){
     text("Time = " + countDown, width/2 - 90, 100);
 
       if (screen == 2 || countDown < 0){
-      countDown = 0;
-      endScreen();
+        countDown = 0;
+        endScreen();
       }
     
   //catcher
@@ -134,6 +134,8 @@ function playIT(){
 
 function endScreen(){
   background(end);
+  screen = 2;
+
 
   //Text
     textSize(150);
@@ -150,8 +152,6 @@ function endScreen(){
 
 function spawnClouds(){
    //image(droplet, x, y);
-
-
 }
 
 /*
@@ -176,3 +176,13 @@ function timer(){
     //Counts numbers down
       countDown = songTime - currentTime;
 }
+
+/*
+function mousePressed(){
+  if(screen == 0){
+    screen = 1;
+  } else if (screen == 2) {
+    screen == 0;
+  }
+}
+*/
