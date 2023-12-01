@@ -91,6 +91,7 @@ function startScreen(){
 function playIT(){
   background(stage);
   song.play();
+  //setVolume(0.5);
 
   /*
   if (!song.isPlaying()){
