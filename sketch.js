@@ -12,6 +12,9 @@ var button;
   var cursor, droplet;  //assets
 //backgrounds
   var startup, stage, end;
+//loaction of cloud spawn
+  var x = -20;
+  var y = 200;
 
 function preload(){
   //songs/tune
@@ -75,19 +78,25 @@ function startScreen(){
     button = createButton('PLAY');
     button.position(320, 475);
     button.size(140, 100);
-    //button.mousePressed(intro.play());
+    button.mousePressed(intro.play());
     button.mousePressed(playIT);
 
   //scoreBoard();
   //playIT();
   //endScreen();
+
+  reset();
 }
 
 function playIT(){
   background(stage);
   song.play();
 
-
+  /*
+  if (!song.isPlaying()){
+    song.play();
+  }
+  */
 
   //score/timer area
     image(counter, width/2 - 190, 10, 400, 200);
@@ -107,7 +116,12 @@ function playIT(){
       }
     
   //catcher
-    image(cursor, mouseX, height-50, 50, 50);  
+    image(cursor, mouseX, height-50, 50, 50);
+
+    //once cloud hits Bob increase score
+      if (y > height-50 && x > mouseX-20 && x< mouseX+20){
+        score += 1;
+      }
     
   //makes sure button on start screen loads player into playIT
     screen = 1;
@@ -135,6 +149,8 @@ function endScreen(){
 
 function spawnClouds(){
    //image(droplet, x, y);
+
+
 }
 
 /*
@@ -147,7 +163,7 @@ function button.mousePressed(){
 }
 */
 
-function scoreBoard(){
+function reset(){
   score = 0;
   speed = 2;
   y = -20;
