@@ -75,7 +75,7 @@ function startScreen(){
     button = createButton('PLAY');
     button.position(320, 475);
     button.size(140, 100);
-    button.mousePressed(intro.play());
+    //button.mousePressed(intro.play());
     button.mousePressed(playIT);
 
   //scoreBoard();
